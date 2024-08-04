@@ -132,9 +132,6 @@ margin:20px;
   font-style: normal;
 }
 @media only screen and (max-width:767px) {
-  body{
-  background: #EAD0D0; 
-  }
   .container{
     width:350px;
   }
