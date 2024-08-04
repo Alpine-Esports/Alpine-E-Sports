@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alpine E-sports</title>
+</head> 
+<!--links-->
+<link rel="stylesheet" href="style.css">
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "EfMbSWrqk0LMGO_gx",
+      });
+   })();
+</script>
+
+<!--font-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<body>
+<div class="container">
+  <div id="container-text">
+  <h1> Registration form </h1>
+  <h3 id="ff">Free fire tournament 
+  <mark>Alpine Academy</mark></h3>
+  </div>
+  <form id="contactForm">
+    <div class="captain">
+     <h3 id="cap-head">captain/player1</h3>
+     <div id="captain">
+ 
+    <label for="name">Name</label>
+ <input type="text" name="name" id="name" required>
+ <br>
+    <label for="id-name">Id Name</label>
+ <input type="text" name="id-name" id="id-name" required><br>
+ <br>
+ <label for="uid">Uid</label>
+<input type="text" id="uid" name="uid" pattern="\d{8,10}" title="Enter Uid" required><br>
+    </div>  
+    </div>
+     <div class="player2 ">
+     <h3 id="two-head"> player 2</h3>
+     <div id="player2">
+ 
+    <label for="name">Name</label>
+ <input type="text" name="name" id="name" required>
+ 
+    <label for="id-name">Id Name</label>
+ <input type="text" name="id-name" id="id-name" required>
+ 
+ <label for="uid">Uid</label>
+<input type="text" id="uid" name="uid" pattern="\d{8,10}" title="Enter Uid" required><br><br>
+    </div>  
+    </div>
+     <div class="player3">
+     <h3 id="three-head">player-3</h3>
+     <div id="player3">
+ 
+    <label for="name">Name</label>
+ <input type="text" name="name" id="name" required>
+ 
+    <label for="id-name">Id Name</label>
+ <input type="text" name="id-name" id="id-name" required>
+ 
+ <label for="uid">Uid</label>
+<input type="text" id="uid" name="uid" pattern="\d{8,10}" title="Enter Uid" required><br><br>
+    </div>  
+    </div>
+    <div class="player4">
+     <h3 id="four-head">player 4</h3>
+     <div id="player4">
+ 
+    <label for="name">Name</label>
+ <input type="text" name="name" id="name" required>
+ 
+    <label for="id-name">Id Name</label>
+ <input type="text" name="id-name" id="id-name" required>
+ 
+ <label for="uid">Uid</label>
+<input type="text" id="uid" name="uid" pattern="\d{8,10}" title="Enter Uid" required><br><br>
+    </div>  
+    </div>
+ 
+ <input id="sub" type="submit" value=" Register ">
+  </form>
+  <script>
+       (function() {
+            emailjs.init("EfMbSWrqk0LMGO_gx"); // Replace with your EmailJS user ID
+        })();
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('id-name'),
+                message: formData.get('uid')
+            };
+
+            emailjs.sendForm("service_n7vyarm", "template_yjudvpn", this)
+                .then(function(response) {
+                    alert('Email sent successfully!');
+                }, function(error) {
+                    console.error('Failed to send email:', error);
+                    alert('Failed to send email. Please try again later.');
+                });
+        });
+        
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const uidInput = document.getElementById('uid').value;
+            if (!/^\d{8,10}$/.test(uidInput)) {
+                e.preventDefault();
+                alert('UID must contain between 8 and 10 digits.');
+            }
+        });
+  </script>
+</div>
+</body>
+
+</html>
